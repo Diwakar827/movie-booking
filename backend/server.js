@@ -31,9 +31,6 @@ app.use("/admin", adminRouter);
 app.use("/movie", movieRouter);
 app.use("/booking", bookingsRouter);
 
-app.get("/",(req,res)=>{
-    res.send("Welcome to the server");
-});
 
   
 const port=process.env.PORT || 5000;
@@ -48,7 +45,11 @@ mongoose.connect(process.env.MONGO_URL, {
         console.log("OH NO MONGO CONNECTION ERROR!!!!");
         console.log(err)
     });
-
+ 
+    app.get("/",(req,res)=>{
+        res.send("Welcome to the server");
+    });
+    
 /*
     if(process.env.NODE_ENV === 'production')
     {
